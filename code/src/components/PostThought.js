@@ -18,7 +18,7 @@ export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
     fetch(API_URL, options)
       .then(res => res.json())
       .then(data => {
-        console.log('thoughts refreshed')
+        console.log('[post thought]', data)
         refreshThoughts()
         setThoughts([data, ...thoughts])
       })

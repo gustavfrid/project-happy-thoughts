@@ -14,7 +14,7 @@ export const HappyThought = ({ thoughts, refreshThoughts }) => {
     fetch(`${API_URL}/${id}/like`, options)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        console.log('[<3 like thought]', data)
         refreshThoughts()
       })
   }

@@ -9,16 +9,21 @@ export const App = () => {
   useEffect(() => {
     fetch(API_URL)
       .then(res => res.json())
-      .then(data => setThoughts(data))
+      .then(data => {
+        console.log('[useEffect]', data)
+        setThoughts(data)
+      })
   }, [])
 
   const refreshThoughts = () => {
     fetch(API_URL)
       .then(res => res.json())
-      .then(data => setThoughts(data))
+      .then(data => {
+        console.log('[refresh thought]', data)
+        setThoughts(data)
+      })
   }
 
-  console.log(thoughts)
   return (
     <div className='container'>
       <PostThought
