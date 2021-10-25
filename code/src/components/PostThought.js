@@ -33,11 +33,15 @@ export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
           className='thought-input'
           id='newThought'
           type='text'
+          maxLength='140'
           rows='4'
           value={newThought}
           onChange={e => setNewThought(e.target.value)}
         />
-        <button className='button post-button' type='submit'>
+        <button
+          className='button post-button'
+          type='submit'
+          disabled={!(newThought.length >= 5 && newThought.length <= 140)}>
           ❤ Send Happy Thought ❤
         </button>
       </form>
