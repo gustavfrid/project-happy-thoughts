@@ -1,0 +1,12 @@
+.thought-input {
+  margin-top: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+  align-content: flex-start;
+  flex-basis: 100%;
+}
+
+.post-button {
+  margin-top: 10px;
+}

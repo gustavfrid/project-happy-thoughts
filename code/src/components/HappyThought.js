@@ -24,9 +24,12 @@ export const HappyThought = ({ thoughts, refreshThoughts }) => {
       {thoughts.map(thought => {
         return (
           <div className='thought-card' key={thought._id}>
-            <p>{thought.message}</p>
-            <button onClick={() => handleAddHeart(thought._id)}> ❤ {thought.hearts}</button>
-            <p>Created at: {moment(thought.createdAt).fromNow()}</p>
+            <p className='thought-heading'>{thought.message}</p>
+            <button className='button heart-button' onClick={() => handleAddHeart(thought._id)}>
+              ❤
+            </button>
+            <p className='heart-number'>x {thought.hearts}</p>
+            <p className='time'>{moment(thought.createdAt).fromNow()}</p>
           </div>
         )
       })}

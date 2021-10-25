@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { API_URL } from 'utils/urls'
-import 'components/happyThought.css'
+import 'components/postThought.css'
 
 export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
   const [newThought, setNewThought] = useState('')
@@ -28,14 +28,18 @@ export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
   return (
     <div className='thought-card'>
       <form onSubmit={onFormSubmit}>
-        <label>Type your thought</label>
-        <input
+        <label className='thought-heading'>What's making you happy right now?</label>
+        <textarea
+          className='thought-input'
           id='newThought'
           type='text'
+          rows='4'
           value={newThought}
           onChange={e => setNewThought(e.target.value)}
         />
-        <button type='submit'>Send thought!</button>
+        <button className='button post-button' type='submit'>
+          ❤ Send Happy Thought ❤
+        </button>
       </form>
     </div>
   )

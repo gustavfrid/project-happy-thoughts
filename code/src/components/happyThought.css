@@ -1,4 +1,33 @@
 .thought-card {
   border: 1px solid;
-  padding: 10px;
+  padding: 20px;
+  box-shadow: 8px 8px 0px 0px #000000;
+  display: flex;
+  /* gap: 10px; */
+  row-gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thought-heading {
+  margin: 0px 0 5px 0;
+  flex-basis: 100%;
+}
+
+.button {
+  height: 30px;
+}
+
+.heart-button {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.heart-number {
+  margin: 0 5px;
+  flex-grow: 1;
+}
+
+.time {
+  flex-grow: 0;
 }
