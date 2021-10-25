@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { API_URL } from 'utils/urls'
 import 'components/happyThought.css'
 
-export const PostThought = ({ thoughts, setThoughts }) => {
+export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
   const [newThought, setNewThought] = useState('')
 
   const onFormSubmit = e => {
@@ -14,9 +15,13 @@ export const PostThought = ({ thoughts, setThoughts }) => {
       body: JSON.stringify({ message: newThought }),
     }
 
-    fetch('https://happy-thoughts-technigo.herokuapp.com/thoughts', options)
+    fetch(API_URL, options)
       .then(res => res.json())
-      .then(data => setThoughts([data, ...thoughts]))
+      .then(data => {
+        console.log('thoughts refreshed')
+        refreshThoughts()
+        setThoughts([data, ...thoughts])
+      })
   }
 
   return (
