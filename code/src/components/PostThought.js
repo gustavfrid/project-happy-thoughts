@@ -21,6 +21,7 @@ export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
         console.log('[post thought]', data)
         refreshThoughts()
         setThoughts([data, ...thoughts])
+        setNewThought('')
       })
   }
 
