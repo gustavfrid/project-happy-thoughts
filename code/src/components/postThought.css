@@ -7,6 +7,79 @@
   flex-basis: 100%;
 }
 
+.post-thought-card {
+  background-color: rgb(238, 238, 238);
+}
+
 .post-button {
   margin-top: 10px;
+  padding: 0 10px;
+  background-color: pink;
+  /* height: 40px; */
+  border: 0;
+  border-radius: 100px;
 }
+
+.red-heart {
+  color: red;
+}
+
+.post-button:disabled .red-heart {
+  color: grey;
+}
+.post-button:disabled {
+  background-color: rgb(204, 204, 204);
+}
+
+.typing {
+  animation: heartbeat 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* @keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.05);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */

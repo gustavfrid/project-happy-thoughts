@@ -19,8 +19,19 @@
 }
 
 .heart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
+  border: 0;
   border-radius: 50%;
+  color: red;
+}
+
+.hearts-x {
+  font-size: 0.7rem;
+  vertical-align: 10%;
+  /* font-weight: bold; */
 }
 
 .heart-number {
@@ -30,4 +41,21 @@
 
 .time {
   flex-grow: 0;
+}
+
+.refresh {
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  position: sticky;
+  z-index: 10;
+  left: 80%;
+  bottom: 20px;
+  border: 2px solid pink;
+}
+
+@media (min-width: 600px) {
+  .refresh {
+    left: 90%;
+  }
 }

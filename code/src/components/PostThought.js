@@ -1,33 +1,10 @@
-import React, { useState } from 'react'
-import { API_URL } from 'utils/urls'
+import React from 'react'
 import 'components/postThought.css'
 
-export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
-  const [newThought, setNewThought] = useState('')
-
-  const onFormSubmit = e => {
-    e.preventDefault()
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message: newThought }),
-    }
-
-    fetch(API_URL, options)
-      .then(res => res.json())
-      .then(data => {
-        console.log('[post thought]', data)
-        refreshThoughts()
-        setThoughts([data, ...thoughts])
-        setNewThought('')
-      })
-  }
-
+export const PostThought = ({ onFormSubmit, newThought, typing, onTyping }) => {
   return (
-    <div className='thought-card'>
-      <form onSubmit={onFormSubmit}>
+    <div className='thought-card post-thought-card'>
+      <form id='postThoughtForm' onSubmit={onFormSubmit}>
         <label className='thought-heading'>What's making you happy right now?</label>
         <textarea
           className='thought-input'
@@ -36,13 +13,16 @@ export const PostThought = ({ refreshThoughts, setThoughts, thoughts }) => {
           maxLength='140'
           rows='4'
           value={newThought}
-          onChange={e => setNewThought(e.target.value)}
+          onChange={e => onTyping(e.target.value)}
         />
         <button
-          className='button post-button'
+          className={
+            typing && newThought.length >= 5 ? 'button post-button typing' : 'button post-button'
+          }
           type='submit'
           disabled={!(newThought.length >= 5 && newThought.length <= 140)}>
-          ❤ Send Happy Thought ❤
+          <span className='red-heart'>❤</span> Send Happy Thought{' '}
+          <span className='red-heart'>❤</span>
         </button>
       </form>
     </div>
