@@ -12,6 +12,9 @@
 .thought-heading {
   margin: 0px 0 5px 0;
   flex-basis: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  /* overflow-wrap: break-word; */
 }
 
 .button {
