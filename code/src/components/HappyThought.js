@@ -9,7 +9,9 @@ export const HappyThought = ({ thoughts, onAddHeart }) => {
         return (
           <div className='thought-card' key={thought._id}>
             <p className='thought-heading'>{thought.message}</p>
-            <button className='button heart-button' onClick={() => onAddHeart(thought._id)}>
+            <button
+              className={thought.hearts !== 0 ? 'button heart-button loved' : 'button heart-button'}
+              onClick={() => onAddHeart(thought._id)}>
               ❤
             </button>
             <p className='heart-number'>

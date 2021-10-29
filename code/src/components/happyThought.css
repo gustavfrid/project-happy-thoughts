@@ -3,7 +3,6 @@
   padding: 20px;
   box-shadow: 8px 8px 0px 0px #000000;
   display: flex;
-  /* gap: 10px; */
   row-gap: 10px;
   align-items: center;
   flex-wrap: wrap;
@@ -12,13 +11,13 @@
 .thought-heading {
   margin: 0px 0 5px 0;
   flex-basis: 100%;
-  overflow-wrap: anywhere;
   word-break: break-word;
-  /* overflow-wrap: break-word; */
 }
 
 .button {
   height: 30px;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="font-size: 15px; text-align: center;"><text y="15">👆❤</text></svg>'),
+    auto;
 }
 
 .heart-button {
@@ -31,10 +30,13 @@
   color: red;
 }
 
+.loved {
+  background-color: pink;
+}
+
 .hearts-x {
   font-size: 0.7rem;
   vertical-align: 10%;
-  /* font-weight: bold; */
 }
 
 .heart-number {

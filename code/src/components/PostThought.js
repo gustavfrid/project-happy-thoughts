@@ -5,16 +5,18 @@ export const PostThought = ({ onFormSubmit, newThought, typing, onTyping }) => {
   return (
     <div className='thought-card post-thought-card'>
       <form id='postThoughtForm' onSubmit={onFormSubmit}>
-        <label className='thought-heading'>What's making you happy right now?</label>
-        <textarea
-          className='thought-input'
-          id='newThought'
-          type='text'
-          maxLength='140'
-          rows='4'
-          value={newThought}
-          onChange={e => onTyping(e.target.value)}
-        />
+        <label className='thought-heading'>
+          What's making you happy right now?
+          <textarea
+            className='thought-input'
+            id='newThought'
+            type='text'
+            maxLength='140'
+            rows='4'
+            value={newThought}
+            onChange={e => onTyping(e.target.value)}
+          />
+        </label>
         <button
           className={
             typing && newThought.length >= 5 ? 'button post-button typing' : 'button post-button'

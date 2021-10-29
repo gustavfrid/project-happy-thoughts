@@ -43,7 +43,6 @@ export const App = () => {
     fetch(API_URL, options)
       .then(res => res.json())
       .then(data => {
-        console.log('[post thought]', data)
         refreshThoughts()
         setThoughts([data, ...thoughts])
         setNewThought('')
