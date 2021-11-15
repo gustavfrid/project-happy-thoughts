@@ -15,10 +15,10 @@ export const App = () => {
   }, [])
 
   const refreshThoughts = () => {
+    setLoading(true)
     fetch(API_URL)
       .then(res => res.json())
       .then(data => {
-        console.log('[refresh thought]', data)
         setThoughts(data)
       })
       .finally(() => setLoading(false))
@@ -27,7 +27,6 @@ export const App = () => {
   const handleTyping = thinking => {
     setTyping(true)
     setNewThought(thinking)
-    console.log('[handleTyping, typing]', typing)
   }
 
   const handleFormSubmit = e => {
@@ -44,7 +43,7 @@ export const App = () => {
       .then(res => res.json())
       .then(data => {
         refreshThoughts()
-        setThoughts([data, ...thoughts])
+        // setThoughts([data, ...thoughts])
         setNewThought('')
       })
   }
@@ -54,7 +53,6 @@ export const App = () => {
     fetch(LIKES_API_URL(id), options)
       .then(res => res.json())
       .then(data => {
-        console.log('[handleAddHeart]', data)
         const updatedThoughts = thoughts.map(thought => {
           if (thought._id === data._id) {
             return { ...thought, hearts: (thought.hearts += 1) }
@@ -62,15 +60,14 @@ export const App = () => {
             return thought
           }
         })
-        console.log('[handleAddHeart]', updatedThoughts)
         setThoughts(updatedThoughts)
       })
   }
 
   const onClickRefresh = () => {
-    setLoading(true)
     refreshThoughts()
   }
+
   return (
     <>
       <div className='container'>
